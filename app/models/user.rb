@@ -12,4 +12,10 @@ class User < ApplicationRecord
                           :uniqueness => true,
                           :format => EMAIL_REGEX
 
+  scope :sorted, lambda {order("username ASC")}
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end
