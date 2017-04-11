@@ -1,0 +1,17 @@
+<table summary="Meme form fields">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field(:name) %></td>
+  </tr>
+  <tr>
+    <th>Content Type</th>
+    <td>
+      <%= f.radio_button(:content_type, 'img') %> Image
+      <%= f.radio_button(:content_type, 'text') %> Text
+    </td>
+  </tr>
+  <tr>
+    <th>Content</th>
+    <td><%= f.text_field(:content) %></td>
+  </tr>
+</table>

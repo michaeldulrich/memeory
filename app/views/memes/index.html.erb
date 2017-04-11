@@ -1,0 +1,29 @@
+<% @page_title = "Your Memes" %>
+<div class="memes index">
+  <h2>Memes</h2>
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
+  <%= link_to("Add New Meme", new_meme_path, :class => 'action new') %>
+
+  <div><%= pluralize(@memes.size, 'meme') %> found</div>
+
+  <table class="listing" summary="Memes list">
+    <tr class="header">
+      <th>Name</th>
+      <th>Content Type</th>
+      <th>Content</th>
+      <th>Actions</th>
+    </tr>
+    <% @memes.recent.each do |meme| %>
+    <tr>
+      <td><%= meme.name %></td>
+      <td><%= meme.content_type %></td>
+      <td><%= meme.content %></td>
+      <td class="actions">
+        <%= link_to("Show", meme_path(meme), :class => 'action show') %>
+        <%= link_to("Edit", edit_meme_path(meme), :class => 'action edit') %>
+        <%= link_to("Delete", delete_meme_path(meme), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

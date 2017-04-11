@@ -1,0 +1,15 @@
+<%= link_to("<< Back to List", memes_path, :class => 'back-link') %>
+
+<div class="memes new">
+  <h2>Add a Meme</h2>
+
+  <%= form_for(@meme, :url => memes_path, :method => 'post') do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Save Meme") %>
+    </div>
+
+  <% end %>
+</div>
