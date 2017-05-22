@@ -23,11 +23,17 @@ class MemesController < AccessController
   end
 
   def edit
-
+    @meme = Meme.find(params[:id])
   end
 
   def update
-
+    @meme = Meme.find(params[:id])
+    if @meme.update_attributes(meme_params)
+      flash[:notice] = "You updated your meme!"
+      redirect_to(memes_path)
+    else
+      render('edit')
+    end
   end
 
   def delete
