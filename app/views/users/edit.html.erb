@@ -3,7 +3,7 @@
 <div class="users edit">
   <h2>Create User</h2>
 
-  <%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
+  <%= form_for(@user) do |f| %>
 
   <%= render(:partial => 'form', :locals => {:f => f}) %>
 

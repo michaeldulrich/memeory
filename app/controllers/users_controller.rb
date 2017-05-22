@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < AccessController
+
+  before_action :confirm_logged_in
 
   def index
     @users = User.sorted
@@ -27,7 +29,14 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "The user was updated successfully."
+      redirect_to(users_path)
+    else
+      Rails.logger.info(@user.errors.messages.inspect)
+      render('edit')
+    end
   end
 
   def delete
