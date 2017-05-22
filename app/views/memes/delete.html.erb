@@ -1,2 +1,17 @@
-<h1>Meme#delete</h1>
-<p>Find me in app/views/meme/delete.html.erb</p>
+<%= link_to("<< Back to List", memes_path, :class => 'back-link') %>
+
+<div class="memes delete">
+  <h2>Delete Meme</h2>
+
+  <%= form_for(@meme, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this meme?</p>
+
+    <p class="reference-name"><%= f.object.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Meme") %>
+    </div>
+
+  <% end %>
+</div>

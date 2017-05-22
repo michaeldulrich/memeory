@@ -34,7 +34,6 @@ class UsersController < AccessController
       flash[:notice] = "The user was updated successfully."
       redirect_to(users_path)
     else
-      Rails.logger.info(@user.errors.messages.inspect)
       render('edit')
     end
   end
