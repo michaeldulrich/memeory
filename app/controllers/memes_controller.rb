@@ -1,5 +1,7 @@
 class MemesController < AccessController
 
+  before_action :confirm_logged_in
+
   def index
     @memes = Meme.recent
   end

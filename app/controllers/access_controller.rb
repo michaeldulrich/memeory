@@ -41,4 +41,6 @@ class AccessController < ApplicationController
     end
   end
 
+  # @current_user ||= User.find(session[:user_id])
+
 end
