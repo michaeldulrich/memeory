@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'public#index'
-
   resources :public, :only => [:index, :show]
 
   resources :users do
@@ -11,6 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :memes do
+    member do
+      get :delete
+    end
+  end
+
+  resources :images do
     member do
       get :delete
     end
