@@ -1,2 +1,16 @@
-<h1>Meme#edit</h1>
-<p>Find me in app/views/meme/edit.html.erb</p>
+<%= link_to("<< Back to List", memes_path, :class => 'back-link') %>
+
+<div class="memes edit">
+  <h2>Edit Meme</h2>
+
+  <%= form_for(@meme) do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Meme") %>
+    </div>
+
+  <% end %>
+</div>
+<%= link_to("Logout", access_logout_path) %>
