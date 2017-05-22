@@ -1,0 +1,27 @@
+<% @page_title = "Your Images" %>
+<div class="images index">
+  <h2>Images</h2>
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
+  <%= link_to("Add New Image", new_image_path, :class => 'action new') %>
+
+  <div><%= pluralize(@images.size, 'image') %> found</div>
+
+  <table class="listing" summary="Images list">
+    <tr class="header">
+      <th>Name</th>
+      <th>Preview</th>
+      <th>Actions</th>
+    </tr>
+    <% @images.recent.each do |image| %>
+    <tr>
+      <td><%= image.name %></td>
+      <td><%= image_tag @image.upload.url(:thumb) %></td>
+      <td class="actions">
+        <%= link_to("Show", user_path(user), :class => 'action show') %>
+        <%= link_to("Edit", edit_user_path(user), :class => 'action edit') %>
+        <%= link_to("Delete", delete_user_path(user), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

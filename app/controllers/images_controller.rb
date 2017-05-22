@@ -1,5 +1,7 @@
-class ImageController < AccessController
+class ImagesController < AccessController
+
   def index
+    @images = Image.recent
   end
 
   def show

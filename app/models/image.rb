@@ -3,4 +3,6 @@ class Image < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   # belongs_to :user
+
+  scope :recent, lambda {order("created_at ASC")}
 end
