@@ -43,7 +43,7 @@ class MemesController < AccessController
   private
 
   def meme_params
-    params.require(:meme).permit(:name, :content_type, :content)
+    params.require(:meme).permit(:name, :content_type, :content, :image)
   end
 
 end
