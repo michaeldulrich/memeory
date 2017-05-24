@@ -14,6 +14,7 @@ class ImagesController < AccessController
 
   def create
     @image = Image.new(image_params)
+    @image.user_id = session[:user_id]
     if @image.save
       flash[:notice] = "You saved a new image! Great work."
       redirect_to(images_path)
