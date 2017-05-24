@@ -1,2 +1,18 @@
-<h1>Image#delete</h1>
-<p>Find me in app/views/image/delete.html.erb</p>
+<%= link_to("<< Back to List", images_path, :class => 'back-link') %>
+
+<div class="images delete">
+  <h2>Delete Image</h2>
+
+  <%= form_for(@image, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this image?</p>
+
+    <p class="reference-name"><%= f.object.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Image") %>
+    </div>
+
+  <% end %>
+</div>
+<%= link_to("Logout", access_logout_path) %>

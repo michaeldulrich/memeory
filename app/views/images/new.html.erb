@@ -1,2 +1,16 @@
-<h1>Image#new</h1>
-<p>Find me in app/views/image/new.html.erb</p>
+<%= link_to("<< Back to List", images_path, :class => 'back-link') %>
+
+<div class="images new">
+  <h2>Add an Image</h2>
+
+  <%= form_for(@image, :url => images_path, :method => 'post') do |f| %>
+
+  <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Upload Image") %>
+    </div>
+
+  <% end %>
+</div>
+<%= link_to("Logout", access_logout_path) %>
