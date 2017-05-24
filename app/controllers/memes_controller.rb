@@ -16,7 +16,7 @@ class MemesController < AccessController
 
   def create
     @meme = Meme.new(meme_params)
-    @image.user_id = session[:user_id]
+    @meme.user_id = session[:user_id]
     if @meme.save
       flash[:notice] = "You just created a new meme!"
       redirect_to(memes_path)
