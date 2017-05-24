@@ -9,15 +9,13 @@
   <table class="listing" summary="Memes list">
     <tr class="header">
       <th>Name</th>
-      <th>Content Type</th>
-      <th>Content</th>
+      <th>Text</th>
       <th>Actions</th>
     </tr>
     <% @memes.recent.each do |meme| %>
     <tr>
       <td><%= meme.name %></td>
-      <td><%= meme.content_type %></td>
-      <td><%= meme.content %></td>
+      <td><%= meme.text %></td>
       <td class="actions">
         <%= link_to("Show", meme_path(meme), :class => 'action show') %>
         <%= link_to("Edit", edit_meme_path(meme), :class => 'action edit') %>

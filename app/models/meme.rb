@@ -6,8 +6,7 @@ class Meme < ApplicationRecord
   # belongs_to :user
 
   validates :name,           :presence => true
-  validates :content_type,   :presence => true
-  validates :content,        :presence => true
+  validates :text,           :presence => true
 
   scope :recent, lambda {order("created_at ASC")}
 
